@@ -1,0 +1,35 @@
+
+package me.galaxysmediaxz.cmdonrespawn;
+
+import java.util.Arrays;
+import java.util.List;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
+public class DeathListener implements Listener{
+    
+    @EventHandler
+    public void onDied(PlayerDeathEvent e){
+        Player p = e.getEntity();
+        ConsoleCommandSender console = main.plugin.getServer().getConsoleSender();
+        p.spigot().respawn();
+        if(main.plugin.getConfig().getBoolean("ExecuteCommand.PlayerEnable")){
+        List<String> cmdsp = main.plugin.getConfig().getStringList("PlayerExecuteCommands");
+      for (String cmdp : cmdsp) {
+Bukkit.dispatchCommand(p,cmdp);
+        }
+        if(main.plugin.getConfig().getBoolean("ExecuteCommand.ConsoleEnable")){
+        List<String> cmdsc = main.plugin.getConfig().getStringList("ConsoleExecuteCommands");
+      for (String cmdc : cmdsc) {
+Bukkit.dispatchCommand(console,cmdc);
+
+      }
+        
+        }
+        }
+    }
+}
