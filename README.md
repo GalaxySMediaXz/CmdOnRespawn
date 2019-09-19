@@ -1,2 +1,2 @@
 # CmdOnRespawn
-a force player to perform command when they respawn
+a force player or console to perform command when some player respawn
