@@ -1,0 +1,11 @@
+### CommandOnRespawn's Config ###
+### Develop by GalaxySMediaXz ##
+
+### Warning: Instant Respawn can't change setting
+ExecuteCommand:
+    PlayerEnable: true
+    ConsoleEnable: true
+PlayerExecuteCommands: 
+    - me Hi!
+ConsoleExecuteCommands:
+    - say Welcome to new world
